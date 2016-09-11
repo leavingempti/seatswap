@@ -32,6 +32,9 @@ var generateNodes = function(rowName,rowConfig){
 }
 angular.module("seatSwap")
 	.service('SeatsService',[function(){
+		this.seats = {};
+		this.paymentAmount = 0;
+		this.selecteNodes = [];
 		var rowConfig = {
 			"firstClass":{
 				'names':["A","B","C"],
@@ -54,10 +57,14 @@ angular.module("seatSwap")
 		};
 		this.getSeats = function(type){
 			if(angular.isDefined(rowConfig[type])) {
-				return {
-					'rows':generateRow(rowConfig[type]),
-					'config':rowConfig[type]
+				if(!angular.isDefined(this.seats[type]))
+				{
+					this.seats[type] =	{
+						'rows':generateRow(rowConfig[type]),
+						'config':rowConfig[type]
+					}
 				}
+				return this.seats[type];
 			}
 			else
 			{
@@ -65,6 +72,13 @@ angular.module("seatSwap")
 					'row':[]
 				}
 			}
+		}
+		this.getSelectedSeats = function(){
+			var seatNames = [];
+			angular.forEach(this.selecteNodes,function(node){
+				seatNames.push(node.displayName);
+			})
+			return seatNames.toString();
 		}
 	}])
 })();

@@ -1,12 +1,18 @@
-<div class="col-md-8">
-	<img src='/images/seats.png'/>
+<div class="col-md-8 container-fluid">
+	<seat-picker seats="firstClass" on-selecting="nodeSelected(node)"></seat-picker>
+	<seat-picker seats="business" on-selecting="nodeSelected(node)"></seat-picker>
+	<seat-picker seats="economy" on-selecting="nodeSelected(node)"></seat-picker>
 </div>
 <div class="col-md-4">
-	<button type="button" class="btn btn-lg btn-default">
+	<button 
+		type="button" 
+		class="btn btn-lg btn-default" 
+		ng-if="selectedNodes.length>0"
+		ng-click="rent()">
 		RENT
 	</button>
-	<h3>
-		$20
+	<h3 ng-if="selectedNodes.length>0">
+		${{20*selectedNodes.length}}
 	</h3>
 	<p class="text-right">
 		{{points}} pts

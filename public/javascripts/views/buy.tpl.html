@@ -5,12 +5,15 @@
 		<seat-picker seats="economy" on-selecting="nodeSelected(node)"></seat-picker>
 	</div>
 	<div class="col-md-4">
-		 
-		<button type="button" class="btn btn-lg btn-default" ng-show="selectedNode.price>0">
+		<button 
+			type="button" 
+			class="btn btn-lg btn-default" 
+			ng-show="selectedNode.price>0"
+			ng-click="purchase()">
 			PURCHASE
 		</button>
 		<h3 ng-if="selectedNode.price>0">
-			{{selectedNode.price}}
+			${{selectedNode.price}}
 		</h3>
 		<p class="text-right">
 			{{points}} pts
