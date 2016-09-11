@@ -7,11 +7,40 @@ a {
   color: #00B7FF;
 }
 
+.plane {
+  margin: 20px auto;
+  max-width: 400px;
+  min-width: 400px;
+}
 
-ul {
-  list-style :none;
-  padding: 0;
-  margin: 0;
+.fuselage {
+  padding: 5px;	
+  border-top: 2px solid #d8d8d8;
+  border-right: 5px solid #d8d8d8;
+  border-left: 5px solid #d8d8d8;
+}
+
+.cockpit {
+  height: 220px; 
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border-bottom: 5px solid #d8d8d8;
+}
+.cockpit:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 400px;
+	width: 100%;
+	border-radius: 50%;
+	border-right: 5px solid #d8d8d8;
+	border-left: 5px solid #d8d8d8;
+}
+.payPoints{
+	top:250px;
 }
 
 .seat{
@@ -53,47 +82,20 @@ ul {
 }
 
 .firstClass{
-	margin-left: 28%;
+	margin-left: 3px;
 }
 .business{
-	margin-left: 16%;
+	margin-left: 3px;
 }
 .economy{
-	margin-left: 5%;
+	margin-left: 3px;
 }
-
-.plane {
-  margin: 20px auto;
-  max-width: 400px;
-  min-width: 400px;
+.firstClass .seatGaps{
+	width:250px;
 }
-
-.fuselage {
-  padding: 5px;	
-  border-top: 2px solid #d8d8d8;
-  border-right: 5px solid #d8d8d8;
-  border-left: 5px solid #d8d8d8;
+.business .seatGaps{
+	width:100px;
 }
-
-.cockpit {
-  height: 220px; 
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  border-bottom: 5px solid #d8d8d8;
-}
-.cockpit:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 400px;
-	width: 100%;
-	border-radius: 50%;
-	border-right: 5px solid #d8d8d8;
-	border-left: 5px solid #d8d8d8;
-}
-.payPoints{
-	top:250px;
+.economy .seatGaps{
+	width:50px;
 }
