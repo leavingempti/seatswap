@@ -21,10 +21,6 @@ router.get("/client_token", function (req, res) {
   });
 });
 
-router.get("/thanks", function (req, res) {
-  res.render('thanks', { title: 'Seat Swap',seatNo: 'a1' });
-});
-
 
 router.post("/checkout", function (req, res) {
 	console.log(req.body)

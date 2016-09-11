@@ -1,7 +1,7 @@
 (function(){
 
 angular.module("seatSwap")
-	.controller("RentSeatsController", ['$scope','$location','SeatsService',function($scope,$location,SeatsService) {
+	.controller("RentSeatsController", ['$scope','$location','SeatsService','FlightService',function($scope,$location,SeatsService,FlightService) {
 		$scope.firstClass = SeatsService.getSeats("firstClass");
 		$scope.business = SeatsService.getSeats("business");
 		$scope.economy = SeatsService.getSeats("economy");
@@ -9,6 +9,13 @@ angular.module("seatSwap")
 		$scope.points = 13500;
 
 		$scope.selectedNodes = [];
+
+        $scope.doorOpen = "loading"; 
+
+        FlightService.isDoorOpen().then(function(data){
+            //$scope.doorOpen = data;
+            $scope.doorOpen = false;
+        });
         
         $scope.nodeSelected = function(node) {
             console.log('user selected ' + node.displayName);

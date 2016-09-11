@@ -1,7 +1,7 @@
 (function(){
 
 angular.module("seatSwap")
-	.controller("BuySeatsController", ['$scope','$location','SeatsService',function($scope,$location,SeatsService) {
+	.controller("BuySeatsController", ['$scope','$location','SeatsService','FlightService',function($scope,$location,SeatsService,FlightService) {
 		$scope.firstClass = SeatsService.getSeats("firstClass");
 		$scope.business = SeatsService.getSeats("business");
 		$scope.economy = SeatsService.getSeats("economy");
@@ -10,8 +10,30 @@ angular.module("seatSwap")
 
 		$scope.selectedNode = {};
         
+        $scope.doorOpen = "loading"; 
+
+        FlightService.isDoorOpen().then(function(data){
+            //$scope.doorOpen = data;
+            $scope.doorOpen = false;
+        });
+
+        var deSelectNodes = function(data,selected){
+            angular.forEach(data.rows,function(row){
+                if(angular.isObject(row)&&angular.isArray(row.nodes))
+                {
+                    angular.forEach(row.nodes,function(node){
+                        if(node.displayName!=selected.displayName){
+                            node.checked = false;
+                        }
+                    })
+                }
+            })
+        }
         $scope.nodeSelected = function(node) {
             console.log('user selected ' + node.displayName);
+            deSelectNodes($scope.firstClass,node);
+            deSelectNodes($scope.business,node);
+            deSelectNodes($scope.economy,node);
             $scope.selectedNode = node;
         };
 

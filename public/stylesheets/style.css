@@ -18,7 +18,43 @@ a {
 	border-top:0px !important;
 	border-bottom:0px !important;
 	width:45px;
+	background-color: none;
 }
 .seatGaps:hover {
 	background-color: none;
+}
+
+.available {
+	background-color:#0099C9;
+}
+.available:hover {
+	background-color:#0099C9;
+}
+
+.unavailable{
+	background-color:#ccc;
+}
+.unavailable:hover{
+	background-color:#ccc;
+}
+
+.selected{
+	background-color:#47D3B0;
+}
+.selected:hover{
+	background-color:#47D3B0;
+}
+
+.seatsContainer{
+	margin-bottom: 5%;
+}
+
+.firstClass{
+	margin-left: 40%;
+}
+.business{
+	margin-left: 22%;
+}
+.economy{
+	margin-left: 15%;
 }
