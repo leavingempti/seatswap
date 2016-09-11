@@ -45,13 +45,13 @@ angular.module("seatSwap")
 			"business":{
 				'names':["D","E","F","G"],
 				'perRow':6,
-				'seatConfig':[2,4],
+				'seatConfig':[3],
 				'price':150
 			},
 			"economy":{
-				'names':["H","I","J","K","L","M","N"],
+				'names':["H","I","J","K","L","M"],
 				'perRow':8,
-				'seatConfig':[2,6],
+				'seatConfig':[4],
 				'price':50
 			}
 		};
