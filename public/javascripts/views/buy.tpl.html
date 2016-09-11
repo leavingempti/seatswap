@@ -1,28 +1,31 @@
-<div class="row container-fluid">
-	<div class="col-md-8">
-		<seat-picker seats="firstClass" on-selecting="nodeSelected(node)" class-name="firstClass"></seat-picker>
-		<seat-picker seats="business" on-selecting="nodeSelected(node)" class-name="business"></seat-picker>
-		<seat-picker seats="economy" on-selecting="nodeSelected(node)" class-name="economy"></seat-picker>
+<div class="row">
+	<div class="col-md-8 plane">
+		<div class="cockpit"></div>
+		<div class="fuselage">
+			<seat-picker seats="firstClass" on-selecting="nodeSelected(node)" class-name="firstClass"></seat-picker>
+			<seat-picker seats="business" on-selecting="nodeSelected(node)" class-name="business"></seat-picker>
+			<seat-picker seats="economy" on-selecting="nodeSelected(node)" class-name="economy"></seat-picker>
+		</div>
 	</div>
-	<div class="col-md-4" ng-if="doorOpen!='loading'">
+	<div class="col-md-4 payPoints" ng-if="doorOpen!='loading'">
 		<p ng-hide="!doorOpen"> Door Not Yet closed</p>
 		<button 
 			type="button" 
 			class="btn btn-lg btn-default" 
-			ng-show="selectedNode.price>0"
+			ng-disabled="selectedNode.price<0"
 			ng-hide="doorOpen"
 			ng-click="purchase()">
 			PURCHASE
 		</button>
 		<h3 ng-if="selectedNode.price>0">
-			${{selectedNode.price}}
+			<img src="/images/chair.jpg" width="50"/> ${{selectedNode.price}} 
 		</h3>
 		<p class="text-right">
-			{{points}} pts
+			{{points}} pts <img src="/images/card.jpg" width="80"/>
 		</p>
 	</div>
-	<div class="progress" ng-if="doorOpen=='loading'">
-	  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" style="width:99%">
+	<div class="progress col-md-4 payPoints" ng-if="doorOpen=='loading'">
+	  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
 	    <span class="sr-only">45% Complete</span>
 	  </div>
 	</div>
