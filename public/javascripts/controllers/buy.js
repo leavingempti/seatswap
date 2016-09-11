@@ -6,10 +6,6 @@ angular.module("seatSwap")
 		$scope.business = SeatsService.getSeats("business");
 		$scope.economy = SeatsService.getSeats("economy");
 
-        $scope.totalAvailable = SeatsService.getAvailable($scope.firstClass)
-                                +SeatsService.getAvailable($scope.business)
-                                +SeatsService.getAvailable($scope.economy);
-
 		$scope.points = 12500;
 
 		$scope.selectedNode = {};
@@ -38,13 +34,14 @@ angular.module("seatSwap")
             })
         }
         $scope.nodeSelected = function(node) {
-            console.log('user selected ' + node.displayName);
             $scope.totalAvailable = 0;
             deSelectNodes($scope.firstClass,node);
             deSelectNodes($scope.business,node);
             deSelectNodes($scope.economy,node);
             $scope.selectedNode = node;
         };
+
+        $scope.nodeSelected({});// reset selection
 
         $scope.purchase = function(){
         	$scope.selectedNode.checked = false;

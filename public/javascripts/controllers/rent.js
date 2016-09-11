@@ -10,6 +10,11 @@ angular.module("seatSwap")
 
 		$scope.selectedNodes = [];
 
+
+        $scope.totalAvailable = SeatsService.getAvailable($scope.firstClass)
+                                +SeatsService.getAvailable($scope.business)
+                                +SeatsService.getAvailable($scope.economy);
+
         $scope.doorOpen = "loading"; 
 
         FlightService.isDoorOpen().then(function(data){
@@ -35,6 +40,9 @@ angular.module("seatSwap")
             	$scope.selectedNodes.splice(spliceIndex,-1);
             }
             $scope.selectedNode = node;
+            $scope.totalAvailable = SeatsService.getAvailable($scope.firstClass)
+                                +SeatsService.getAvailable($scope.business)
+                                +SeatsService.getAvailable($scope.economy);
         };
 
         $scope.rent = function(){
