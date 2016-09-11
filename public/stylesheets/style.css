@@ -42,7 +42,9 @@ a {
 .payPoints{
 	top:250px;
 }
-
+.seatInfo{
+	padding: 10px;
+}
 .seat{
 	width:48px;
 }
@@ -55,7 +57,12 @@ a {
 .seatGaps:hover {
 	background-color: none;
 }
-
+.seatNumber {
+	position: absolute;
+    top: 94px;
+    left: 75px;
+    color:white;
+}
 .available {
 	background-color:#0099C9;
 }
@@ -81,6 +88,10 @@ a {
 	margin-bottom: 5%;
 }
 
+.jumbotron{
+	background-color:white;
+}
+
 .firstClass{
 	margin-left: 3px;
 }
@@ -98,4 +109,8 @@ a {
 }
 .economy .seatGaps{
 	width:62px;
+}
+.priceInfo{
+	margin-left: -40px;
+    margin-top: 25px;
 }

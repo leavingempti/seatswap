@@ -18,10 +18,11 @@ var generateNodes = function(rowName,rowConfig){
 	{
 		var seatData = {
 			'type':rowConfig.seatConfig.indexOf(index)!=-1?0:1,  // to add space set value 0
-			'displayName':rowName+seatIndex,
+			'displayName':seatIndex+rowName,
 			'price':rowConfig.price,
 			'selected':parseInt(Math.random(2)*10)%2,
-			'checked':false
+			'checked':false,
+			'class':rowConfig.class
 		};
 		if(rowConfig.seatConfig.indexOf(index)==-1){
 			seatIndex++;
@@ -40,19 +41,22 @@ angular.module("seatSwap")
 				'names':["A","B","C"],
 				'seatConfig':[2],
 				'perRow':4,
-				'price':300
+				'price':300,
+				'class':"First Class"
 			},
 			"business":{
 				'names':["D","E","F","G"],
 				'perRow':6,
 				'seatConfig':[3],
-				'price':150
+				'price':150,
+				'class':"Business Class"
 			},
 			"economy":{
 				'names':["H","I","J","K","L","M"],
 				'perRow':8,
 				'seatConfig':[4],
-				'price':50
+				'price':50,
+				'class':"Economy Class"
 			}
 		};
 		this.getSeats = function(type){
@@ -79,6 +83,20 @@ angular.module("seatSwap")
 				seatNames.push(node.displayName);
 			})
 			return seatNames.toString();
+		}
+
+		this.getAvailable = function(data){
+			var total = 0;
+			console.log(data);
+			angular.forEach(data.rows,function(rows){
+				angular.forEach(rows.nodes,function(node){
+					if(!node.selected!=1&&node.type==1)
+					{
+						total++;
+					}
+				})
+			})
+			return total;
 		}
 	}])
 })();
