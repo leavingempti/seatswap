@@ -52,7 +52,7 @@ angular.module("seatSwap")
 				'names':["H","I","J","K","L","M","N"],
 				'perRow':8,
 				'seatConfig':[2,6],
-				'price':0
+				'price':50
 			}
 		};
 		this.getSeats = function(type){
