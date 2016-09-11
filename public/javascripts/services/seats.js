@@ -13,12 +13,12 @@ var generateRow = function(rowConfig){
 }
 var generateNodes = function(rowName,rowConfig){
 	var nodes = [];
-	var seatIndex = 1;
+	var seatIndex = 0;
 	for(var index = 1 ; index < rowConfig.perRow;index++)
 	{
 		var seatData = {
 			'type':rowConfig.seatConfig.indexOf(index)!=-1?0:1,  // to add space set value 0
-			'displayName':seatIndex+rowName,
+			'displayName':rowName+String.fromCharCode(97 + seatIndex).toUpperCase(),
 			'price':rowConfig.price,
 			'selected':parseInt(Math.random(2)*10)%2,
 			'checked':false,
@@ -38,21 +38,21 @@ angular.module("seatSwap")
 		this.selecteNodes = [];
 		var rowConfig = {
 			"firstClass":{
-				'names':["A","B","C"],
+				'names':["1","2","3"],
 				'seatConfig':[2],
 				'perRow':4,
 				'price':300,
 				'class':"First Class"
 			},
 			"business":{
-				'names':["D","E","F","G"],
+				'names':["4","5","6","7"],
 				'perRow':6,
 				'seatConfig':[3],
 				'price':150,
 				'class':"Business Class"
 			},
 			"economy":{
-				'names':["H","I","J","K","L","M"],
+				'names':["8","9","10","11","12","13"],
 				'perRow':8,
 				'seatConfig':[4],
 				'price':50,
@@ -87,7 +87,6 @@ angular.module("seatSwap")
 
 		this.getAvailable = function(data){
 			var total = 0;
-			console.log(data);
 			angular.forEach(data.rows,function(rows){
 				angular.forEach(rows.nodes,function(node){
 					if(!node.selected!=1&&node.type==1)
