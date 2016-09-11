@@ -2,34 +2,19 @@
 
 angular.module("seatSwap")
 	.controller("BuySeatsController", ['$scope','SeatsService',function($scope,SeatsService) {
-		$scope.seatsData = SeatsService.seats;
+		$scope.firstClass = SeatsService.getSeats("firstClass");
+		$scope.business = SeatsService.getSeats("business");
+		$scope.economy = SeatsService.getSeats("economy");
+
 		$scope.points = 12500;
 
-		$scope.selectedNodes = [];
-        
-        $scope.userEvent = '--';
+		$scope.selectedNode = {};
         
         $scope.nodeSelected = function(node) {
-            $scope.userEvent = 'user selected ' + node.displayName;
-            $scope.$apply(); 
-            
-            console.log('User selected ' + node.displayName); 
+            console.log('user selected ' + node.displayName);
+            $scope.selectedNode = node;
         };
-        
-        $scope.nodeDeselected = function(node) {
-            $scope.userEvent = 'user deselected ' + node.displayName;
-            $scope.$apply(); 
-            
-            console.log($scope.userEvent = 'User deselected ' + node.displayName);
-        };
-        
-        $scope.nodeDisallowedSelected = function(node) {
-            $scope.userEvent = 'user attempted to select occupied seat ' + node.displayName;
-            $scope.$apply(); 
-            
-            console.log('User attempted to select occupied seat : ' + node.displayName);
-        };
-        
+
 	}]);
 
 })();

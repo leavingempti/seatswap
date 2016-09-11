@@ -6,3 +6,19 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.center-inner {
+  display: inline-block;
+}
+.seat{
+	width:48px;
+}
+.seatGaps {
+	border-top:0px !important;
+	border-bottom:0px !important;
+	width:45px;
+}
+.seatGaps:hover {
+	background-color: none;
+}

@@ -1,14 +1,4 @@
 extends layout
 
 block content
-	div.container-fluid
-		div.row(ng-view)
-		div.row
-			div.col-md-12
-				ul.nav.nav-pills
-					li.active
-						a(href='#/') SEAT UPGRADE
-					li
-						a(href='#/rent') RENT A SEAT
-					li.disabled
-						a(href='#/') DESTINATION
+	div.container-fluid(ng-view)
