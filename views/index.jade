@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	div.container-fluid
+		div.row
+			div.col-md-8
+				img(src='/images/seats.png')
+			div.col-md-4
+				button.btn.btn-lg.btn-default(type='button') PURCHASE
+				h3
+					$112
+				p.text-right  {{points}} pts
+		div.row
+			div.col-md-12
+				ul.nav.nav-pills
+					li.active
+						a(href='#') SEAT UPGRADE
+					li
+						a(href='#') RENT A SEAT
+					li.disabled
+						a(href='#') DESTINATION
