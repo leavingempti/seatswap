@@ -8,9 +8,15 @@ html
 		script(type = 'text/javascript', src = '/lib/bootstrap/js/bootstrap.min.js')
 		script(type = 'text/javascript', src = 'https://tc16n.panasonic.aero/inflight.js')
 		script(type = 'text/javascript', src = '/lib/angular.min.js')
+		script(type = 'text/javascript', src = '/lib/angular-route.min.js')
 
 		script(type = 'text/javascript', src = '/javascripts/app.js')
-		script(type = 'text/javascript', src = '/javascripts/controllers/seat.js')
 		script(type = 'text/javascript', src = '/javascripts/services/inflight.js')
-body(ng-app='seatSwap' ng-controller='SeatsController')
+		script(type = 'text/javascript', src = '/javascripts/services/braintree.js')
+		script(type = 'text/javascript', src = '/javascripts/services/seats.js')
+		script(type = 'text/javascript', src = '/javascripts/directives/seating.js')
+		script(type = 'text/javascript', src = '/javascripts/controllers/buy.js')
+		script(type = 'text/javascript', src = '/javascripts/controllers/rent.js')
+
+body(ng-app='seatSwap')
 	block content

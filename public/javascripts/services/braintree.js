@@ -1,0 +1,8 @@
+(function(){
+
+// braintree api key - t8gwb94d7x973mg9
+// MID : szj9yv5s3zzv8448
+// CSE Key : MIIBCgKCAQEAoKKCI/W0j4yowIOnfbnbyTPJz5oMabTUleg/CmKty3F1Fh5DDPAOgkBZF9rnJXAE3E5Ny3Maru9MRteKMEuXQch92ab4EC6GpcrigOsZAptWrYF4/Kea70HMuI7OOOqfO/qTvOfJV7b1Gxc4SxZbOYNfVhh1JMxB3Ba6TlDUG7BDMr5wgIyCEpPAhCydQNRHg6P1Bukw0naCCtVjrxnIs0jCoR4Xh/SrAQD++vQsusJu8gH5D+iNZqjRyz7kvc3ZiNeIyxd+vNCyMZ5C9V4B+ieabx+1/oBqrE3pYyWe46mA2HWV9HOemeDFxw5n3TucUG1ZIxJDBI93REQPIUqLTQIDAQAB
+
+
+})();
